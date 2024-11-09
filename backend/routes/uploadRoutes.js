@@ -35,11 +35,12 @@ const uploadSingleImage = upload.single("image");
 router.post("/", (req, res) => {
   uploadSingleImage(req, res, (err) => {
     if (err) {
-      res.status(400).send({ message: err.mesage });
+      res.status(400).send({ message: err.message });
     } else if (req.file) {
+      const imageUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
       res.status(200).send({
         message: "Image uploaded successfully",
-        image: `${req.file.path}`,
+        image: imageUrl,
       });
     } else {
       res.status(400).send({ message: "No image file provided" });
