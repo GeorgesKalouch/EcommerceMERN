@@ -25,6 +25,6 @@ router.route("/total-sales").get(calculateTotalSales);
 router.route("/total-sales-by-date").get(calculateTotalSalesByDate);
 router.route("/:id").get(authenticate, findOrderById);
 router.route("/:id/pay").put(authenticate, markOrderAsPayed);
-router.route("/id:/deliver").put(authenticate, authorizeAdmin, markAsDelivered);
+router.route("/:id/deliver").put(authenticate, authorizeAdmin, markAsDelivered);
 
 export default router;
