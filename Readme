@@ -1,0 +1,8 @@
+Don't forget to add these as .env file
+add these as a .env file
+
+PORT=
+MONGO_URI=
+NODE_ENV=
+JWT_SECRET=
+PAYPAL_CLIENT_ID=
