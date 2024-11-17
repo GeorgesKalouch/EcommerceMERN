@@ -56,7 +56,13 @@ const loginUser = asyncHandler(async (req, res) => {
         isAdmin: existingUser.isAdmin,
       });
       return;
+    } else {
+      res.status(401);
+      throw new Error("Invalid Credentials");
     }
+  } else {
+    res.status(404);
+    throw new Error("Invalid Credentials");
   }
 });
 
@@ -160,9 +166,9 @@ const updateUserById = asyncHandler(async (req, res) => {
       email: updatedUser.email,
       isAdmin: updatedUser.isAdmin,
     });
-  }else{
-    res.status(404)
-    throw new Error("User not found")
+  } else {
+    res.status(404);
+    throw new Error("User not found");
   }
 });
 
